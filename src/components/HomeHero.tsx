@@ -47,7 +47,7 @@ export function HomeHero({
   }, [video, reduce]);
 
   return (
-    <section ref={ref} className="grain relative h-[100svh] min-h-[640px] overflow-hidden bg-brand-900 text-white">
+    <section ref={ref} className="grain relative min-h-[100svh] overflow-hidden bg-brand-900 text-white sm:min-h-[640px]">
       <motion.div style={{ scale }} className="absolute inset-0">
         {video ? (
           <video
@@ -88,7 +88,7 @@ export function HomeHero({
 
       <motion.div
         style={{ y: yText, opacity }}
-        className="relative mx-auto flex h-full max-w-7xl flex-col justify-end px-4 pb-28 sm:px-6 sm:pb-32 lg:px-8"
+        className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-end px-4 pt-28 pb-24 sm:min-h-[640px] sm:px-6 sm:pt-32 sm:pb-32 lg:px-8"
       >
         <motion.span
           initial={{ opacity: 0, y: 12 }}
@@ -103,7 +103,7 @@ export function HomeHero({
           {eyebrow}
         </motion.span>
 
-        <h1 className="text-balance mt-6 max-w-5xl text-[2.6rem] font-semibold leading-[1.02] tracking-[-0.03em] sm:text-7xl lg:text-[5.6rem]">
+        <h1 className="text-balance mt-6 max-w-5xl text-[2.3rem] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-7xl lg:text-[5.6rem]">
           <RevealWords text={title} delay={0.2} />
         </h1>
 
@@ -111,7 +111,7 @@ export function HomeHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="text-pretty mt-6 max-w-xl text-lg leading-relaxed text-white/80 sm:text-xl"
+          className="text-pretty mt-5 max-w-xl text-[17px] leading-relaxed text-white/80 sm:mt-6 sm:text-xl"
         >
           {text}
         </motion.p>
@@ -120,18 +120,18 @@ export function HomeHero({
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center"
+          className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:items-center"
         >
           <Link
             href="/kontakt"
-            className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-[15px] font-semibold text-brand transition hover:bg-brand-50"
+            className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-[15px] font-semibold text-brand sm:py-4 transition hover:bg-brand-50"
           >
             Erstgespräch vereinbaren
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <a
             href={`tel:${phoneLink}`}
-            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/35 px-7 py-4 text-[15px] font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-white/35 px-7 py-3.5 text-[15px] font-semibold text-white backdrop-blur-sm sm:py-4 transition hover:bg-white/10"
           >
             <Phone className="h-4 w-4" /> {phone}
           </a>
