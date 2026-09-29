@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "@/components/FImage";
+import { focus, focusCentered } from "@/lib/faces";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
@@ -12,12 +13,15 @@ export function ParallaxImage({
   className = "",
   strength = 60,
   sizes = "(min-width: 1024px) 50vw, 100vw",
+  mobileAspect,
 }: {
   src: string;
   alt: string;
   className?: string;
   strength?: number;
   sizes?: string;
+  /** Seitenverhältnis des Bildes unter 1024 px (per className setzen, z. B. aspect-square → 1): Personen werden dort mittig gesetzt */
+  mobileAspect?: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
@@ -34,9 +38,20 @@ export function ParallaxImage({
   const y = useTransform(scrollYProgress, [0, 1], active ? [-strength, strength] : [0, 0]);
 
   return (
-    <div ref={ref} className={`relative overflow-hidden ${className}`}>
+    <div
+      ref={ref}
+      className={`relative overflow-hidden ${className} ${mobileAspect ? "lg:[--mpos:initial]" : ""}`}
+      style={mobileAspect ? ({ "--mpos": focusCentered(src, mobileAspect) } as React.CSSProperties) : undefined}
+    >
       <motion.div style={{ y, top: active ? -strength : 0, bottom: active ? -strength : 0 }} className="absolute inset-x-0">
-        <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes={sizes}
+          className="object-cover"
+          style={mobileAspect ? { objectPosition: `var(--mpos, ${focus(src)})` } : undefined}
+        />
       </motion.div>
     </div>
   );

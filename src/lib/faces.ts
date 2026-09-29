@@ -58,3 +58,20 @@ export function focus(src: string, fallback = "50% 50%") {
   };
   return `${axis(z[0], z[2]).toFixed(1)}% ${axis(z[1], z[3]).toFixed(1)}%`;
 }
+
+/**
+ * object-position, das die Gesichter möglichst mittig in einen Ausschnitt mit
+ * bekanntem Seitenverhältnis (Breite/Höhe) setzt – z. B. für die Mobilansicht.
+ */
+export function focusCentered(src: string, containerAspect: number, imageAspect = 1.5) {
+  const z = faceZones[key(src)];
+  if (!z) return "50% 50%";
+  const fx = Math.min(1, containerAspect / imageAspect);
+  const fy = Math.min(1, imageAspect / containerAspect);
+  const axis = (a: number, b: number, f: number) => {
+    if (f >= 1) return 50;
+    const p = ((a + b) / 2 - f / 2) / (1 - f);
+    return Math.max(0, Math.min(1, p)) * 100;
+  };
+  return `${axis(z[0], z[2], fx).toFixed(1)}% ${axis(z[1], z[3], fy).toFixed(1)}%`;
+}

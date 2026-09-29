@@ -115,7 +115,7 @@ export default async function LeistungenPage() {
                 </ul>
               </div>
               <Reveal delay={0.1} className={i % 2 === 1 ? "lg:order-1" : ""}>
-                {l.bild && <ParallaxImage src={l.bild} alt={l.titel} className="aspect-[4/3] rounded-[2rem]" strength={15} />}
+                {l.bild && <ParallaxImage src={l.bild} alt={l.titel} className="aspect-square rounded-[2rem] lg:aspect-[4/3]" strength={15} mobileAspect={1} />}
               </Reveal>
             </Container>
           </section>
