@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/FImage";
 import { ArrowUpRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { ContactForm } from "@/components/ContactForm";
@@ -27,7 +27,6 @@ export default async function KontaktPage() {
         title="Lass uns sprechen."
         text="Ob Erstgespräch, Wechsel oder eine konkrete Frage: Wir nehmen uns Zeit für dich."
         image="/images/fotos/empfang-hund.webp"
-        position="50% 40%"
       />
       <section className="py-20 sm:py-28">
         <Container className="grid gap-14 lg:grid-cols-12">

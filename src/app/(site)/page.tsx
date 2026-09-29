@@ -1,5 +1,5 @@
 import { hy } from "@/lib/hyphen";
-import Image from "next/image";
+import Image from "@/components/FImage";
 import Link from "next/link";
 import {
   ArrowUpRight, Cloud, ChartLine, HandHeart, Handshake, MessageCircle, ScanLine, ShieldCheck, Sparkles,
@@ -106,13 +106,13 @@ export default async function HomePage() {
                 strength={40}
               />
             </Reveal>
-            <Reveal delay={0.25} className="absolute -bottom-10 -left-4 w-[46%] sm:-left-10">
+            <Reveal delay={0.25} className="absolute -bottom-10 -left-10 hidden w-[42%] sm:block">
               <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl ring-8 ring-white">
                 <Image src="/images/fotos/hammer-detail.webp" alt="Der Holzhammer im Besprechungsraum" fill sizes="300px" className="object-cover" />
               </div>
             </Reveal>
-            <Reveal delay={0.4} className="absolute top-8 -right-2 sm:-right-6">
-              <div className="rounded-2xl bg-white/90 px-5 py-4 shadow-xl ring-1 ring-ink/5 backdrop-blur">
+            <Reveal delay={0.4} className="relative mt-5 flex justify-start sm:absolute sm:-right-6 sm:bottom-10 sm:mt-0 sm:block">
+              <div className="rounded-2xl bg-white/90 px-4 py-3 shadow-xl ring-1 ring-ink/5 backdrop-blur sm:px-5 sm:py-4">
                 <div className="flex items-center gap-2 text-sm font-semibold text-ink">
                   <Sparkles className="h-4 w-4 text-brand" /> Dienstleister aus Leidenschaft
                 </div>
@@ -148,36 +148,35 @@ export default async function HomePage() {
               <Reveal key={l.slug} delay={(i % 2) * 0.1}>
                 <Link
                   href={`/leistungen#${l.slug}`}
-                  className="group relative flex h-full min-h-[420px] flex-col justify-end overflow-hidden rounded-[2rem] bg-brand-900 p-8 text-white sm:p-10"
+                  className="group flex h-full flex-col overflow-hidden rounded-[2rem] bg-brand-900 text-white"
                 >
-                  {l.bild && (
-                    <Image
-                      src={l.bild}
-                      alt=""
-                      fill
-                      sizes="(min-width: 768px) 50vw, 100vw"
-                      className="object-cover opacity-80 transition-all duration-[1.2s] ease-out group-hover:scale-105 group-hover:opacity-50"
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/55 to-transparent" />
-                  <span className="absolute top-8 left-8 text-sm font-medium text-white/60 sm:left-10">
-                    0{i + 1}
-                  </span>
-                  <span className="absolute top-7 right-7 grid h-12 w-12 place-items-center rounded-full bg-white/10 backdrop-blur transition-all duration-500 group-hover:rotate-45 group-hover:bg-white group-hover:text-brand">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </span>
-                  <div className="relative">
-                    <h3 className="text-[1.7rem] font-semibold leading-tight tracking-tight sm:text-4xl">{hy(l.titel)}</h3>
-                    <p className="mt-4 max-w-md text-white/75">{l.kurz}</p>
-                    <div className="grid grid-rows-[0fr] transition-all duration-700 group-hover:grid-rows-[1fr]">
-                      <ul className="flex flex-wrap gap-2 overflow-hidden">
-                        {l.punkte.slice(0, 4).map((p) => (
-                          <li key={p} className="mt-5 rounded-full bg-white/10 px-3 py-1.5 text-sm backdrop-blur">
-                            {p}
-                          </li>
-                        ))}
-                      </ul>
+                  <div className="relative aspect-[3/2] overflow-hidden">
+                    {l.bild && (
+                      <Image
+                        src={l.bild}
+                        alt=""
+                        fill
+                        sizes="(min-width: 768px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-105"
+                      />
+                    )}
+                  </div>
+                  <div className="relative flex flex-1 flex-col p-8 sm:p-10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-white/50">0{i + 1}</span>
+                      <span className="grid h-12 w-12 place-items-center rounded-full bg-white/10 transition-all duration-500 group-hover:rotate-45 group-hover:bg-white group-hover:text-brand">
+                        <ArrowUpRight className="h-5 w-5" />
+                      </span>
                     </div>
+                    <h3 className="mt-4 text-[1.7rem] font-semibold leading-tight tracking-tight sm:text-4xl">{hy(l.titel)}</h3>
+                    <p className="mt-4 max-w-md text-white/75">{l.kurz}</p>
+                    <ul className="mt-6 flex flex-wrap gap-2">
+                      {l.punkte.slice(0, 4).map((p) => (
+                        <li key={p} className="rounded-full bg-white/10 px-3 py-1.5 text-sm">
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </Link>
               </Reveal>
@@ -304,27 +303,29 @@ export default async function HomePage() {
       </section>
 
       {/* Team-Banner */}
-      <section className="relative">
+      <section className="relative bg-brand-900">
         <ParallaxImage
           src="/images/fotos/team-innen.webp"
           alt="Das gesamte Team von Hammer & Partner in der Kanzlei"
-          className="h-[80vh] min-h-[520px]"
-          strength={80}
+          className="aspect-[3/2] lg:aspect-auto lg:h-[88vh] lg:min-h-[560px]"
+          strength={50}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-900/30 to-transparent" />
-        <Container className="absolute inset-x-0 bottom-0 pb-16 text-white">
-          <Reveal>
-            <h2 className="text-balance max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-              15 Menschen. Ein Team. Per Du – vom Azubi bis zum Chef.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.15}>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button href="/ueber-uns" variant="light">Über uns</Button>
-              <Button href="/karriere" variant="outline-light">Werde Teil des Teams</Button>
-            </div>
-          </Reveal>
+        <div className="absolute inset-x-0 bottom-0 hidden h-2/5 bg-gradient-to-t from-brand-900/95 via-brand-900/60 to-transparent lg:block" />
+        <Container className="relative py-12 text-white lg:absolute lg:inset-x-0 lg:bottom-0 lg:py-0 lg:pb-14">
+          <div className="lg:flex lg:items-end lg:justify-between lg:gap-10">
+            <Reveal>
+              <h2 className="text-balance max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl">
+                15 Menschen. Ein Team. Per Du – vom Azubi bis zum Chef.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <div className="mt-8 flex shrink-0 flex-wrap gap-3 lg:mt-0">
+                <Button href="/ueber-uns" variant="light">Über uns</Button>
+                <Button href="/karriere" variant="outline-light">Werde Teil des Teams</Button>
+              </div>
+            </Reveal>
+          </div>
         </Container>
       </section>
 
@@ -365,15 +366,15 @@ export default async function HomePage() {
             </Reveal>
           </div>
           <Reveal delay={0.15} className="relative">
-            <div className="grid h-full grid-cols-2 gap-4">
-              <div className="relative row-span-2 min-h-[380px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/kolleginnen-ordner.webp" alt="Zwei Kolleginnen lachen gemeinsam" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative col-span-2 aspect-[3/2] overflow-hidden rounded-[2rem]">
+                <Image src="/images/fotos/kolleginnen-ordner.webp" alt="Zwei Kolleginnen lachen gemeinsam" fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
               </div>
-              <div className="relative min-h-[180px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/buerohund.webp" alt="Der Bürohund liegt unter dem Schreibtisch" fill sizes="25vw" className="object-cover" />
+              <div className="relative aspect-square overflow-hidden rounded-[2rem]">
+                <Image src="/images/fotos/buerohund.webp" alt="Der Bürohund liegt unter dem Schreibtisch" fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
               </div>
-              <div className="relative min-h-[180px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/stehpult.webp" alt="Arbeiten am höhenverstellbaren Schreibtisch" fill sizes="25vw" className="object-cover" />
+              <div className="relative aspect-square overflow-hidden rounded-[2rem]">
+                <Image src="/images/fotos/stehpult.webp" alt="Arbeiten am höhenverstellbaren Schreibtisch" fill sizes="(min-width:1024px) 22vw, 50vw" className="object-cover" />
               </div>
             </div>
           </Reveal>

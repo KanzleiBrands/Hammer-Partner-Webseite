@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/FImage";
 import { ArrowUpRight, HandHeart, Handshake, Heart, MessageCircle, ShieldCheck, Sparkles } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -44,7 +44,8 @@ export default async function UeberUnsPage() {
         title="Menschen, die Steuern mit Herz machen."
         text="Seit 1965 begleiten wir Unternehmer, Selbstständige und Familien in der Region – heute mit 15 Menschen, modernen Prozessen und derselben Haltung wie am ersten Tag."
         image="/images/fotos/team-innen.webp"
-        position="50% 45%"
+        compact
+        wideImage
       />
 
       {/* Story */}
@@ -190,7 +191,7 @@ export default async function UeberUnsPage() {
               <Reveal
                 key={g}
                 delay={(i % 4) * 0.06}
-                className={`relative overflow-hidden rounded-3xl ${i === 0 || i === 5 ? "row-span-2" : ""} ${i === 3 || i === 7 ? "col-span-2" : ""}`}
+                className={`relative overflow-hidden rounded-3xl ${i === 0 || i === 3 || i === 5 || i === 6 ? "col-span-2" : ""}`}
               >
                 <Image src={`/images/fotos/${g}.webp`} alt="Teammitglied bei der Arbeit" fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
               </Reveal>

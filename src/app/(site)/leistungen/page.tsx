@@ -1,6 +1,6 @@
 import { hy } from "@/lib/hyphen";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/FImage";
 import { Check, X, CircleAlert } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -46,7 +46,6 @@ export default async function LeistungenPage() {
         title="Steuerberatung, die nach vorn denkt."
         text="Die Pflicht erledigen wir zuverlässig. Den Unterschied machen Weitblick, digitale Prozesse und echte Begleitung für dich und dein Unternehmen."
         image="/images/fotos/besprechung-flipchart.webp"
-        position="50% 35%"
       >
         <div className="mt-10 flex flex-wrap gap-2">
           {leistungen.map((l) => (
@@ -116,7 +115,7 @@ export default async function LeistungenPage() {
                 </ul>
               </div>
               <Reveal delay={0.1} className={i % 2 === 1 ? "lg:order-1" : ""}>
-                {l.bild && <ParallaxImage src={l.bild} alt={l.titel} className="aspect-[4/5] rounded-[2rem]" strength={40} />}
+                {l.bild && <ParallaxImage src={l.bild} alt={l.titel} className="aspect-[4/3] rounded-[2rem]" strength={15} />}
               </Reveal>
             </Container>
           </section>
@@ -194,7 +193,7 @@ export default async function LeistungenPage() {
       </section>
 
       <section className="relative overflow-hidden">
-        <Image src="/images/fotos/beratung-gespraech.webp" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/fotos/konferenzraum.webp" alt="" fill sizes="100vw" className="object-cover" />
         <div className="absolute inset-0 bg-brand-900/80" />
         <Container className="relative py-24 text-center text-white sm:py-32">
           <Reveal>

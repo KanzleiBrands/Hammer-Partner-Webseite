@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/FImage";
 import { Check, X, Clock, Euro, Palmtree, Users } from "lucide-react";
 import { Reveal, RevealWords } from "@/components/Reveal";
 import { Counter } from "@/components/Counter";
@@ -39,13 +39,13 @@ const schritte = [
 ];
 
 const gallery = [
-  { src: "/images/fotos/kolleginnen-ordner.webp", cls: "row-span-2" },
+  { src: "/images/fotos/kolleginnen-ordner.webp", cls: "col-span-2" },
   { src: "/images/fotos/arbeitsplatz-3.webp", cls: "" },
   { src: "/images/fotos/buerohund.webp", cls: "" },
+  { src: "/images/fotos/headset.webp", cls: "" },
   { src: "/images/fotos/team-jung.webp", cls: "col-span-2" },
-  { src: "/images/fotos/headset.webp", cls: "row-span-2" },
   { src: "/images/fotos/stehpult.webp", cls: "row-span-2" },
-  { src: "/images/fotos/besprechung-team.webp", cls: "" },
+  { src: "/images/fotos/besprechung-team.webp", cls: "col-span-2" },
   { src: "/images/fotos/flur-gespraech.webp", cls: "col-span-2" },
   { src: "/images/fotos/arbeitsplatz-5.webp", cls: "" },
   { src: "/images/fotos/rechner.webp", cls: "col-span-2" },
@@ -57,60 +57,65 @@ export default async function KarrierePage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="grain relative flex min-h-[100svh] items-end overflow-hidden bg-brand-900 pt-32 pb-16 text-white">
-        <Image src="/images/fotos/quartett.webp" alt="Teammitglieder von Hammer & Partner vor der Kanzlei" fill preload sizes="100vw" className="animate-kenburns object-cover" style={{ objectPosition: "50% 30%" }} />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/55 to-brand-900/10" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 via-brand-900/10 to-transparent" />
-        <Container className="relative">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-md">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+      {/* Hero – Text und Foto nebeneinander, kein Text über Gesichtern */}
+      <section className="grain relative overflow-hidden bg-brand-900 text-white lg:min-h-[100svh]">
+        <div className="pointer-events-none absolute -top-40 -left-40 h-[36rem] w-[36rem] rounded-full bg-brand/70 blur-[140px]" />
+        <div className="relative mx-auto max-w-7xl lg:grid lg:min-h-[100svh] lg:grid-cols-12 lg:items-center lg:gap-12 lg:px-8 lg:pt-32 lg:pb-20">
+        <div className="relative mt-20 aspect-[4/3] overflow-hidden sm:aspect-[16/10] lg:order-2 lg:col-span-6 lg:mt-0 lg:aspect-[5/4] lg:rounded-[2.5rem] lg:shadow-[0_40px_120px_-40px_rgba(0,0,0,0.6)] lg:ring-1 lg:ring-white/10">
+          <Image src="/images/fotos/quartett.webp" alt="Teammitglieder von Hammer & Partner vor der Kanzlei" fill preload sizes="(min-width:1024px) 48vw, 100vw" className="object-cover" />
+        </div>
+        <div className="relative px-4 pt-10 pb-20 sm:px-6 lg:order-1 lg:col-span-6 lg:px-0 lg:py-0">
+          <div>
+            <Reveal>
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+                </span>
+                Karriere bei Hammer &amp; Partner · Betzdorf
               </span>
-              Karriere bei Hammer &amp; Partner · Betzdorf
-            </span>
-          </Reveal>
-          <h1 className="text-balance mt-6 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-[-0.03em] sm:text-7xl lg:text-[5.6rem]">
-            <RevealWords text={karriere.heroTitel} delay={0.15} />
-          </h1>
-          <Reveal delay={0.5}>
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80 sm:text-xl">{karriere.heroText}</p>
-          </Reveal>
-          <Reveal delay={0.65}>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="#stellen" variant="light">Offene Stellen ansehen</Button>
-              <Button href="/karriere/initiativbewerbung" variant="outline-light">Initiativ bewerben</Button>
-            </div>
-          </Reveal>
-          <Reveal delay={0.8}>
-            <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/15 ring-1 ring-white/15 backdrop-blur-md sm:grid-cols-4">
-              {[
-                { icon: Users, value: 15, suffix: "", label: "Kolleginnen & Kollegen" },
-                { icon: Palmtree, value: 30, suffix: " Tage", label: "Urlaub im Jahr" },
-                { icon: Euro, value: 13, suffix: ",3", label: "Gehälter pro Jahr" },
-                { icon: Clock, value: 20, suffix: "–40 h", label: "Wochenstunden frei wählbar" },
-              ].map((s) => (
-                <div key={s.label} className="bg-brand-900/40 p-5 sm:p-6">
-                  <s.icon className="h-5 w-5 text-brand-200" />
-                  <dd className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-                    <Counter value={s.value} />
-                    {s.suffix}
-                  </dd>
-                  <dt className="mt-1 text-sm text-white/70">{s.label}</dt>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        </Container>
+            </Reveal>
+            <h1 className="text-balance mt-6 text-[2.5rem] font-semibold leading-[1.04] tracking-[-0.03em] sm:text-6xl lg:text-[3.4rem] xl:text-[4rem]">
+              <RevealWords text={karriere.heroTitel} delay={0.15} />
+            </h1>
+            <Reveal delay={0.5}>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/80">{karriere.heroText}</p>
+            </Reveal>
+            <Reveal delay={0.65}>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                <Button href="#stellen" variant="light">Offene Stellen ansehen</Button>
+                <Button href="/karriere/initiativbewerbung" variant="outline-light">Initiativ bewerben</Button>
+              </div>
+            </Reveal>
+            <Reveal delay={0.8}>
+              <dl className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/15 ring-1 ring-white/15">
+                {[
+                  { icon: Users, value: 15, suffix: "", label: "Kolleginnen & Kollegen" },
+                  { icon: Palmtree, value: 30, suffix: " Tage", label: "Urlaub im Jahr" },
+                  { icon: Euro, value: 13, suffix: ",3", label: "Gehälter pro Jahr" },
+                  { icon: Clock, value: 20, suffix: "–40 h", label: "Wochenstunden frei wählbar" },
+                ].map((st) => (
+                  <div key={st.label} className="bg-brand-900/60 p-5">
+                    <st.icon className="h-5 w-5 text-brand-200" />
+                    <dd className="mt-3 text-3xl font-semibold tracking-tight">
+                      <Counter value={st.value} />
+                      {st.suffix}
+                    </dd>
+                    <dt className="mt-1 text-sm text-white/70">{st.label}</dt>
+                  </div>
+                ))}
+              </dl>
+            </Reveal>
+          </div>
+        </div>
+        </div>
       </section>
 
       {/* Über uns */}
       <section className="py-24 sm:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative">
-            <ParallaxImage src="/images/fotos/team-innen.webp" alt="Das Team von Hammer & Partner" className="aspect-[5/4] rounded-[2rem]" strength={40} />
+            <ParallaxImage src="/images/fotos/team-innen.webp" alt="Das Team von Hammer & Partner" className="aspect-[3/2] rounded-[2rem]" strength={12} />
             <div className="absolute -right-3 -bottom-8 rounded-3xl bg-brand px-6 py-5 text-white shadow-2xl sm:-right-8">
               <div className="text-4xl font-semibold tracking-tight">„Du“</div>
               <div className="text-sm text-white/80">vom Azubi bis zum Chef</div>
@@ -327,7 +332,8 @@ export default async function KarrierePage() {
       {/* CTA */}
       <section className="px-4 pb-24 sm:px-6 lg:px-8">
         <div className="grain relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-brand px-6 py-20 text-center text-white sm:px-16">
-          <Image src="/images/fotos/team-aussen.webp" alt="" fill sizes="100vw" className="object-cover opacity-20" />
+          <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-brand-400/40 blur-3xl" />
           <div className="relative">
             <Reveal>
               <h2 className="text-balance mx-auto max-w-3xl text-4xl font-semibold tracking-tight sm:text-6xl">Klingt gut? Dann lass uns kennenlernen.</h2>
