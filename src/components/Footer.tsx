@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone, Printer } from "lucide-react";
 import { Logo } from "./Logo";
 import { Container } from "./ui";
+import { SocialIcons } from "./SocialIcons";
 import type { Settings } from "@/lib/content";
 
 export function Footer({ settings }: { settings: Settings }) {
@@ -29,6 +30,18 @@ export function Footer({ settings }: { settings: Settings }) {
               >
                 Karriere
               </Link>
+            </div>
+            <div className="mt-10">
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">Folge uns</div>
+              <div className="mt-4">
+                <SocialIcons
+                  links={{
+                    facebook: settings.facebookUrl,
+                    instagram: settings.instagramUrl,
+                    linkedin: settings.linkedinUrl,
+                  }}
+                />
+              </div>
             </div>
           </div>
 
@@ -96,11 +109,6 @@ export function Footer({ settings }: { settings: Settings }) {
         <div className="mt-16 flex flex-col gap-4 border-t border-ink/10 pt-8 text-sm text-ink/60 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Hammer &amp; Partner mbB Steuerberater</p>
           <div className="flex flex-wrap gap-6">
-            {settings.facebookUrl && (
-              <a href={settings.facebookUrl} target="_blank" rel="noopener noreferrer" className="hover:text-brand">
-                Facebook
-              </a>
-            )}
             <Link href="/impressum" className="hover:text-brand">
               Impressum
             </Link>

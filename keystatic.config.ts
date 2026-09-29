@@ -57,6 +57,8 @@ export default config({
         duoUrl: fields.url({ label: "Link DATEV Unternehmen online" }),
         fernbetreuungUrl: fields.url({ label: "Link Mandanten-Fernbetreuung" }),
         facebookUrl: fields.url({ label: "Facebook" }),
+        instagramUrl: fields.url({ label: "Instagram (optional)" }),
+        linkedinUrl: fields.url({ label: "LinkedIn (optional)" }),
         heroVideo: fields.text({
           label: "Header-Video (optional)",
           description:
