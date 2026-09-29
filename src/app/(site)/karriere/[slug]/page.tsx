@@ -24,7 +24,6 @@ export async function generateMetadata(props: PageProps<"/karriere/[slug]">): Pr
   return {
     title: `${job.titel} – ${job.schwerpunkt} in ${job.ort}`,
     description: job.teaser,
-    openGraph: { images: job.bild ? [job.bild] : undefined },
   };
 }
 

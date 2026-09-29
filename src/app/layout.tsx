@@ -16,8 +16,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "de_DE",
     siteName: "Hammer & Partner mbB Steuerberater",
-    images: ["/images/fotos/team-aussen.webp"],
-
   },
 };
 
