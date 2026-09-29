@@ -108,10 +108,9 @@ Impressum / Datenschutz
 
 ## 11. Noch offen
 
-- Logo als SVG (Export aus der .ai-Datei)
 - B-Roll-Video für den Header (MP4)
 - Resend-Account + verifizierte Absender-Domain für den Formularversand
-- Standort Müschenbach: gibt es ihn noch? Die alte Website und das Impressum nennen ihn, im Call hieß es „nur Betzdorf zeigen“
-- Bildzuordnung bestätigen: Mann/Frau auf `partner.webp` = Markus Böhmer / Simone Klapper?
-- Datenschutzerklärung juristisch prüfen lassen (Entwurf auf Basis der tatsächlich genutzten Dienste)
+- Standort Müschenbach (klärt Lukas mit der Kanzlei): gibt es ihn noch? Im Impressum steht er aktuell wie auf der alten Seite. Die alte Website und das Impressum nennen ihn, im Call hieß es „nur Betzdorf zeigen“
+- Datenschutzerklärung: aktuell wörtlich von der alten Seite übernommen (nennt noch Borlabs, WP Statistics, Google Maps) → vor Go-live an Vercel-Hosting, Resend und tatsächliche Tools anpassen
+- Fotos in höherer Auflösung (siehe `docs/bilder.md`)
 - Echte Zitate aus dem Team für eine „Stimmen“-Sektion (optional)

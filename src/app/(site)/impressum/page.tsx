@@ -1,93 +1,148 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/ui";
-import { getSettings } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Impressum", robots: { index: false } };
 
-export default async function ImpressumPage() {
-  const s = await getSettings();
+// Inhalte wörtlich nach https://www.hammerpartner.de/impressum/ (Stand 29.09.2026).
+export default function ImpressumPage() {
   return (
     <>
       <PageHero compact eyebrow="Rechtliches" title="Impressum" />
       <section className="py-20">
-        <Container className="max-w-3xl space-y-10 text-[17px] leading-relaxed text-ink/80 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink">
+        <Container className="max-w-3xl space-y-10 text-[17px] leading-relaxed text-ink/80 [&_h2]:mb-3 [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:text-ink [&_a]:text-brand [&_a]:underline">
           <div>
-            <h2>Angaben gemäß § 5 DDG</h2>
-            <p>
-              Hammer &amp; Partner mbB Steuerberater
+            <p className="text-xl font-semibold text-ink">
+              Hammer &amp; Partner mbB
               <br />
-              Partnerschaftsgesellschaft mit beschränkter Berufshaftung
+              Steuerberater
+            </p>
+            <p className="mt-2">
+              Dipl.-Kauffrau, StBin Simone Klapper
               <br />
-              {s.strasse}
-              <br />
-              {s.ort}
+              Dipl.-Kaufmann, StB Markus Böhmer
             </p>
           </div>
+
           <div>
-            <h2>Vertreten durch die Partner</h2>
+            <h2>Kontaktdaten</h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              <p>
+                <strong className="text-ink">Standort Betzdorf</strong>
+                <br />
+                Moltkestraße 71
+                <br />
+                57518 Betzdorf
+                <br />
+                Telefon: 02741 / 991730
+                <br />
+                Fax: 02741 / 991759
+              </p>
+              <p>
+                <strong className="text-ink">Standort Müschenbach</strong>
+                <br />
+                Poststraße 7
+                <br />
+                57629 Müschenbach
+                <br />
+                Telefon: 02662 / 94730
+                <br />
+                Fax: 02662 / 947320
+              </p>
+            </div>
+            <p className="mt-4">
+              E-Mail: <a href="mailto:kanzlei@hammerpartner.de">kanzlei@hammerpartner.de</a>
+            </p>
+          </div>
+
+          <div>
+            <h2>Umsatzsteuer-Identifikationsnummer</h2>
+            <p>DE212537793</p>
+          </div>
+
+          <div>
+            <h2>Partnerschaftsregister &amp; Registernummer</h2>
+            <p>
+              Amtsgericht Koblenz
+              <br />
+              PR 20143
+            </p>
+          </div>
+
+          <div>
+            <h2>Verantwortlicher / Verantwortliche für journalistisch-redaktionelle Texte</h2>
             <p>
               Dipl.-Kauffrau, StBin Simone Klapper
               <br />
               Dipl.-Kaufmann, StB Markus Böhmer
             </p>
           </div>
+
           <div>
-            <h2>Kontakt</h2>
+            <h2>Steuerberater / Steuerberaterin</h2>
             <p>
-              Telefon: {s.telefon}
-              <br />
-              Fax: {s.fax}
-              <br />
-              E-Mail: <a className="text-brand underline" href={`mailto:${s.email}`}>{s.email}</a>
+              Die gesetzliche Berufsbezeichnung Steuerberater / Steuerberaterin wurde verliehen in der
+              Bundesrepublik Deutschland (Rheinland-Pfalz).
             </p>
           </div>
+
           <div>
-            <h2>Register</h2>
+            <h2>Zuständige Aufsichtsbehörde</h2>
             <p>
-              Partnerschaftsregister: Amtsgericht Koblenz, PR 20143
+              Steuerberaterkammer Rheinland-Pfalz
               <br />
-              Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE212537793
+              Hölderlinstraße 1
+              <br />
+              55131 Mainz
+              <br />
+              Telefon: 06131 / 952100
+              <br />
+              Fax: 06131 / 9521040
+              <br />
+              E-Mail: <a href="mailto:info@sbk-rlp.de">info@sbk-rlp.de</a>
+              <br />
+              Web: <a href="https://www.sbk-rlp.de" target="_blank" rel="noopener noreferrer">www.sbk-rlp.de</a>
             </p>
           </div>
+
           <div>
-            <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
-            <p>
-              Die gesetzliche Berufsbezeichnung Steuerberater/Steuerberaterin wurde in der
-              Bundesrepublik Deutschland (Rheinland-Pfalz) verliehen.
-            </p>
-            <p className="mt-3">
-              Zuständige Kammer und Aufsichtsbehörde: Steuerberaterkammer Rheinland-Pfalz, Körperschaft
-              des öffentlichen Rechts, Hölderlinstraße 1, 55131 Mainz, Telefon 06131 952100,{" "}
-              <a className="text-brand underline" href="https://www.sbk-rlp.de" target="_blank" rel="noopener noreferrer">www.sbk-rlp.de</a>
-            </p>
-            <p className="mt-3">Es gelten insbesondere folgende berufsrechtliche Regelungen:</p>
-            <ul className="mt-2 list-disc pl-5">
+            <h2>Berufsrechtliche Regelungen</h2>
+            <p>Der Berufsstand der Steuerberater unterliegt im Wesentlichen den nachstehenden berufsrechtlichen Regelungen:</p>
+            <ul className="mt-3 list-disc space-y-1 pl-5">
               <li>Steuerberatungsgesetz (StBerG)</li>
               <li>Durchführungsverordnung zum Steuerberatungsgesetz (DVStB)</li>
-              <li>Berufsordnung der Steuerberater (BOStB)</li>
+              <li>Berufsordnung (BOStB)</li>
               <li>Steuerberatervergütungsverordnung (StBVV)</li>
             </ul>
             <p className="mt-3">
-              Die Regelungen können bei der Bundessteuerberaterkammer unter{" "}
-              <a className="text-brand underline" href="https://www.bstbk.de" target="_blank" rel="noopener noreferrer">www.bstbk.de</a>{" "}
-              eingesehen werden.
+              Die berufsrechtlichen Regelungen können bei der zuständigen Steuerberaterkammer eingesehen
+              werden. Diese finden Sie auch unter der Homepage der Bundessteuerberaterkammer (
+              <a href="https://www.bstbk.de" target="_blank" rel="noopener noreferrer">www.bstbk.de</a>).
             </p>
           </div>
+
           <div>
-            <h2>Berufshaftpflichtversicherung</h2>
+            <h2>Angaben zur Berufshaftpflichtversicherung</h2>
             <p>
-              ERGO Versicherung AG, Victoriaplatz 1, 40198 Düsseldorf. Räumlicher Geltungsbereich:
-              Tätigkeiten in Europa; der Versicherungsschutz genügt mindestens den Anforderungen des §
-              67 StBerG und der §§ 51 ff. DVStB.
+              Die Berufshaftpflichtversicherung besteht bei der ERGO Versicherung AG, Victoriaplatz 1,
+              40198 Düsseldorf. Der räumliche Geltungsbereich des Versicherungsschutzes umfasst
+              Tätigkeiten in Europa und genügt damit mindestens den Anforderungen der Vorschriften gemäß
+              § 67 Steuerberatungsgesetz (StBerG) und §§ 51 ff. der Verordnung zur Durchführung der
+              Vorschriften über Steuerberater, Steuerbevollmächtigte und Steuerberatungsgesellschaften
+              (DVStB).
             </p>
           </div>
+
           <div>
-            <h2>Verantwortlich für den Inhalt</h2>
-            <p>Dipl.-Kauffrau, StBin Simone Klapper und Dipl.-Kaufmann, StB Markus Böhmer, Anschrift wie oben.</p>
+            <h2>Gebühren</h2>
+            <p>
+              Die Gebühren unserer Dienstleistungen richten sich nach den gesetzlichen Vorschriften, die
+              in der Steuerberatervergütungsverordnung (StBVV) zusammengefasst sind.
+            </p>
           </div>
+
           <div>
-            <h2>Verbraucherstreitbeilegung</h2>
+            <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
             <p>
               Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
               Verbraucherschlichtungsstelle teilzunehmen.

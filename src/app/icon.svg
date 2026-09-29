@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <g transform="translate(-53.4 -75.7) scale(0.86)">
+  <defs>
+    <linearGradient id="hp-swoosh" x1="66" y1="140" x2="132" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2c43a3"/>
+      <stop offset=".55" stop-color="#253781"/>
+      <stop offset="1" stop-color="#1b2865"/>
+    </linearGradient>
+    <radialGradient id="hp-sphere" cx="107.6" cy="109.4" r="13.5" fx="106.8" fy="108.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".18" stop-color="#d9dadd"/>
+      <stop offset=".55" stop-color="#7d8088"/>
+      <stop offset=".85" stop-color="#3b3e45"/>
+      <stop offset="1" stop-color="#26282d"/>
+    </radialGradient>
+    <linearGradient id="hp-letters" x1="0" y1="126" x2="0" y2="145" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#a3a6ad"/>
+      <stop offset="1" stop-color="#83868e"/>
+    </linearGradient>
+  </defs>
+  <path d="M78.674 137.769 C99.066 140.263 121.402 128.712 128.568 111.971 C129.049 110.847 129.445 109.732 129.767 108.626 C131.838 113.194 131.937 118.508 129.605 123.956 C123.706 137.732 104.497 147.137 86.696 144.961 C77.484 143.834 70.456 139.826 66.636 134.310 C70.115 136.021 74.155 137.217 78.674 137.769Z" fill="url(#hp-swoosh)"/>
+  <circle cx="111.65" cy="113.73" r="10.45" fill="url(#hp-sphere)"/>
+  </g>
+</svg>
