@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  /* Hausfarbe: PANTONE Blue 072 U – HEX noch vom Kunden zu bestätigen */
+  --color-brand: #10069f;
+  --color-brand-dark: #0b0470;
+  --color-ink: #1f2330;
+  --color-muted: #6b7080;
+  --color-surface: #f4f5f8;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+}
