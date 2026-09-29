@@ -88,6 +88,30 @@ Impressum / Datenschutz
 - Formularversand: Vorschlag Resend (API-Key als Vercel-Env-Variable)
 - CMS: im Call „performantes CMS-Setup“ erwähnt → ❌ klären, ob Kunde selbst pflegen soll
 
-## 9. Offene Punkte
+## 9. Entscheidungen (29.09.)
 
-Siehe Chat-Zusammenfassung / Abschnitt oben mit ❌ und ⚠️.
+- Mandanten werden **geduzt**
+- Farben: **#253781** (Akzent), **#FFFFFF**, **#DDDDDD** (Footer, Flächen)
+- Schrift: **Inter** (lokal eingebunden, DSGVO-konform)
+- Personalfragebögen vorerst nicht nötig → dafür eine vollwertige Karriereseite nach kanzleijobs-Vorbild
+- Leistungs-Cluster freigegeben
+- CMS für die Kanzlei gewünscht → Keystatic (siehe `docs/cms.md`)
+- Domain/DNS kommt später
+
+## 10. Aus der alten Website übernommen
+
+- Gründung **1965** durch Karl Heinz Hammer · 2001 Eintritt Simone Klapper (Tochter) · 2012 Partnerschaft mit Markus Böhmer · 2016 „Hammer & Partner mbB“
+- Allgemeine E-Mail: **kanzlei@hammerpartner.de**
+- Durchwahlen: Klapper 02741 991736 · Böhmer 02741 991737
+- Links: DATEV Unternehmen online `https://duo.datev.de` · Fernbetreuung `https://go.datev.de/mfb-kunde`
+- Impressum: USt-IdNr. DE212537793 · Berufshaftpflicht ERGO Versicherung AG · StBK Rheinland-Pfalz, Mainz
+
+## 11. Noch offen
+
+- Logo als SVG (Export aus der .ai-Datei)
+- B-Roll-Video für den Header (MP4)
+- Resend-Account + verifizierte Absender-Domain für den Formularversand
+- Standort Müschenbach: gibt es ihn noch? Die alte Website und das Impressum nennen ihn, im Call hieß es „nur Betzdorf zeigen“
+- Bildzuordnung bestätigen: Mann/Frau auf `partner.webp` = Markus Böhmer / Simone Klapper?
+- Datenschutzerklärung juristisch prüfen lassen (Entwurf auf Basis der tatsächlich genutzten Dienste)
+- Echte Zitate aus dem Team für eine „Stimmen“-Sektion (optional)

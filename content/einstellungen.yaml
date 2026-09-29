@@ -1,0 +1,15 @@
+telefon: 02741 991730
+telefonLink: '+492741991730'
+fax: 02741 991759
+email: kanzlei@hammerpartner.de
+strasse: Moltkestraße 71
+ort: 57518 Betzdorf
+oeffnungszeiten:
+  - tage: Montag – Donnerstag
+    zeiten: 07:30 – 17:00 Uhr
+  - tage: Freitag
+    zeiten: 07:30 – 13:30 Uhr
+duoUrl: https://duo.datev.de
+fernbetreuungUrl: https://go.datev.de/mfb-kunde
+facebookUrl: https://www.facebook.com/hammerundpartner
+heroVideo: ''
