@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "@/components/FImage";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, Check, Clock, Euro, MapPin, ShieldCheck } from "lucide-react";
@@ -73,7 +73,8 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
 
       {/* Hero */}
       <section className="grain relative overflow-hidden bg-brand-900 pt-32 pb-20 text-white sm:pt-40">
-        <div className="pointer-events-none absolute -top-40 -left-40 h-[36rem] w-[36rem] rounded-full bg-brand/70 blur-[140px]" />
+        {job.bild && <Image src={job.bild} alt="" fill preload sizes="100vw" className="animate-kenburns object-cover opacity-40" style={{ objectPosition: "50% 30%" }} />}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/85 to-brand-900/40" />
         <Container className="relative">
           <Reveal>
             <Link href="/karriere" className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium backdrop-blur transition hover:bg-white/20">
@@ -109,19 +110,12 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
               </Reveal>
             </div>
             <Reveal delay={0.5} className="lg:col-span-4">
-              <div className="overflow-hidden rounded-3xl bg-white/10 ring-1 ring-white/15 backdrop-blur-md">
-                {job.bild && (
-                  <div className="relative aspect-[3/2]">
-                    <Image src={job.bild} alt="" fill preload sizes="(min-width:1024px) 33vw, 100vw" className="object-cover" />
-                  </div>
-                )}
-                <div className="p-6">
+              <div className="rounded-3xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur-md">
                 <p className="text-lg font-medium">Wir suchen dich zur Verstärkung unseres Teams in Betzdorf!</p>
                 <a href="#bewerben" className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-semibold text-brand transition hover:bg-brand-50">
                   In 60 Sekunden bewerben
                 </a>
                 <p className="mt-3 flex items-center justify-center gap-2 text-xs text-white/60"><ShieldCheck className="h-3.5 w-3.5" /> Ohne Anschreiben · 100 % vertraulich</p>
-                </div>
               </div>
             </Reveal>
           </div>

@@ -20,6 +20,7 @@ export default function InitiativPage() {
         title="Du passt zu uns? Dann lass uns reden."
         text="Auch wenn gerade keine passende Stelle ausgeschrieben ist: Wir lernen gute Leute immer gerne kennen."
         image="/images/fotos/flur-gespraech.webp"
+        position="50% 40%"
       />
       <section className="py-24">
         <Container className="grid gap-14 lg:grid-cols-12">

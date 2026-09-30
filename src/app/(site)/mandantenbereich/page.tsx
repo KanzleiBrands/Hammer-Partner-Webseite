@@ -41,6 +41,7 @@ export default async function MandantenPage() {
         title="Alles, was du für die Zusammenarbeit brauchst."
         text="Schneller Zugang zu deinen digitalen Werkzeugen – rund um die Uhr."
         image="/images/fotos/schreibtisch.webp"
+        position="50% 40%"
       />
       <section className="py-20 sm:py-28">
         <Container>

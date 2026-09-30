@@ -56,13 +56,13 @@ Die Zuordnung übernimmt Claude.
 | 183 | empfang |
 | 196 | rechner |
 
-## Gesichter nie verdecken oder abschneiden
+## Gesichter und Bildausschnitte
 
-- `src/lib/faces.ts` enthält für jedes Foto den Bereich mit den Köpfen. Daraus berechnet die
-  Website automatisch den Bildausschnitt (`object-position`).
-- **Neues Foto?** Eintrag in `faces.ts` ergänzen (x0, y0, x1, y1 als Anteile 0–1).
-- Test: `npm run build && npm start`, dann `npm run test:faces`. Er prüft alle Seiten auf
-  6 Bildschirmgrößen und meldet verdeckte oder angeschnittene Gesichter.
-- Regel für Layouts: Kein Text über Fotos mit Menschen. Text steht neben oder unter dem Bild.
-- Ausnahme (auf Wunsch): Der vollflächige Header der Startseite mit Überschrift auf dem Foto
-  (`data-face-exempt` in `src/components/HomeHero.tsx`) wird vom Test übersprungen.
+- Die Header aller Seiten sind (auf Wunsch) wieder vollflächige Fotos mit Text darauf.
+  Die frühere Regel "kein Text über Fotos mit Menschen" gilt nicht mehr.
+- Beibehalten wurden zwei gezielte Korrekturen:
+  - Startseite: Das "seit 1965"-Badge liegt mobil unter dem Partnerfoto statt auf den Gesichtern.
+  - Leistungen: Mobil wird das Bild mittig auf Herrn Böhmer ausgerichtet
+    (`mobileAspect` in `src/components/Parallax.tsx`, Daten aus `src/lib/faces.ts`).
+- `npm run test:faces` prüft weiterhin alle Seiten, meldet aber jetzt bewusst Text über
+  Gesichtern in den Headern. Das Skript dient nur noch als Hilfe bei neuen Fotos.

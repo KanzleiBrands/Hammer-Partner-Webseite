@@ -1,4 +1,4 @@
-import Image from "@/components/FImage";
+import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 
 export function ContactPerson({
@@ -9,7 +9,7 @@ export function ContactPerson({
   return (
     <div className={`flex flex-col gap-6 rounded-[2rem] p-6 sm:flex-row sm:items-center sm:p-8 ${dark ? "bg-white/[0.06] text-white ring-1 ring-white/10" : "bg-white ring-1 ring-ink/5 shadow-xl"}`}>
       <div className="relative h-28 w-28 shrink-0 overflow-hidden rounded-3xl">
-        <Image data-single-face src={image} alt={name} fill sizes="240px" className="object-cover" style={{ objectPosition: imagePos, transform: "scale(1.9)", transformOrigin: imagePos }} />
+        <Image src={image} alt={name} fill sizes="240px" className="object-cover" style={{ objectPosition: imagePos, transform: "scale(1.9)", transformOrigin: imagePos }} />
       </div>
       <div>
         <div className={`text-sm ${dark ? "text-white/60" : "text-muted"}`}>{label}</div>
