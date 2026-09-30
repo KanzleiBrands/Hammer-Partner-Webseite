@@ -64,3 +64,5 @@ Die Zuordnung übernimmt Claude.
 - Test: `npm run build && npm start`, dann `npm run test:faces`. Er prüft alle Seiten auf
   6 Bildschirmgrößen und meldet verdeckte oder angeschnittene Gesichter.
 - Regel für Layouts: Kein Text über Fotos mit Menschen. Text steht neben oder unter dem Bild.
+- Ausnahme (auf Wunsch): Der vollflächige Header der Startseite mit Überschrift auf dem Foto
+  (`data-face-exempt` in `src/components/HomeHero.tsx`) wird vom Test übersprungen.

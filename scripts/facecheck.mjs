@@ -18,7 +18,7 @@ for (const [w, h] of sizes) for (const path of pages) {
   for (let i = 0; i < n; i++) {
     const info = await p.evaluate(async ({ i, zones }) => {
       const img = document.querySelectorAll('main img')[i];
-      if (img.hasAttribute('data-single-face')) return null; const s = img.currentSrc || img.src; const u = decodeURIComponent(s);
+      if (img.hasAttribute('data-single-face') || img.hasAttribute('data-face-exempt')) return null; const s = img.currentSrc || img.src; const u = decodeURIComponent(s);
       const m = u.match(/\/cms\/([^/]+)\/bild\./) || u.match(/\/([^/?&]+)\.(webp|jpe?g|png)/);
       const k = m && m[1]; const z = zones[k]; if (!z) return null;
       img.scrollIntoView({ block: 'center' }); await new Promise(r => setTimeout(r, 1400)); try { await img.decode(); } catch {}
