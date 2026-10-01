@@ -1,6 +1,6 @@
 # Bilder in höherer Auflösung
 
-Die aktuellen Fotos sind 1741 px breit. Auf großen und Retina-Bildschirmen braucht ein
+Seit dem 01.10.2026 sind die 32 genutzten Fotos in 2048 px aus dem Kanzlei-Brands-Drive eingebunden (vorher 1741 px). Auf großen und Retina-Bildschirmen braucht ein
 bildschirmfüllendes Foto aber bis zu ~3000 px, sonst wirkt es weich.
 
 ## Export-Einstellungen
