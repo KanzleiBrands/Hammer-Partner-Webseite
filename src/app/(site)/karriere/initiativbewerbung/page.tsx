@@ -8,7 +8,7 @@ import { contacts } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Initiativbewerbung",
-  description: "Du möchtest Teil des Teams von Hammer & Partner in Betzdorf werden? Bewirb dich initiativ – in 60 Sekunden.",
+  description: "Du möchtest Teil des Teams von Hammer & Partner in Betzdorf werden? Bewirb Dich initiativ – in 60 Sekunden.",
 };
 
 export default function InitiativPage() {
@@ -27,10 +27,10 @@ export default function InitiativPage() {
           <div className="lg:col-span-5">
             <Reveal><Eyebrow>So einfach geht&apos;s</Eyebrow></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 text-4xl font-semibold tracking-tight">Vier Fragen, deine Kontaktdaten – fertig.</h2>
+              <h2 className="mt-6 text-4xl font-semibold tracking-tight">Vier Fragen, Deine Kontaktdaten – fertig.</h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-6 text-lg text-muted">Wir melden uns persönlich bei dir und schauen gemeinsam, was passen könnte – ob Steuerfachangestellte/r, Bilanzbuchhaltung, Ausbildung oder Quereinstieg.</p>
+              <p className="mt-6 text-lg text-muted">Wir melden uns persönlich bei Dir und schauen gemeinsam, was passen könnte – ob Steuerfachangestellter (m/w/d), Bilanzbuchhaltung, Ausbildung oder Quereinstieg.</p>
             </Reveal>
             <Reveal delay={0.3} className="mt-10">
               <ContactPerson {...contacts.klapper} />

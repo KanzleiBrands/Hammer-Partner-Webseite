@@ -3,13 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Clock, Euro, MapPin } from "lucide-react";
 import { formatSalary, type Job } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 export function JobImageCard({ job }: { job: Job }) {
   const salary = formatSalary(job.gehaltVon, job.gehaltBis);
   return (
     <article className="group relative overflow-hidden rounded-[2rem] bg-brand-900 text-white">
       {job.bild && (
-        <Image src={job.bild} alt="" fill sizes="(min-width:1024px) 80vw, 100vw" className="object-cover opacity-50 transition-all duration-[1.2s] group-hover:scale-105 group-hover:opacity-35" />
+        <Image src={job.bild} alt="" fill sizes="(min-width:1024px) 80vw, 100vw" className="object-cover opacity-50 transition-all duration-[1.2s] group-hover:scale-105 group-hover:opacity-35" style={{ objectPosition: focus(job.bild) }} />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/80 to-brand-900/20" />
       <div className="relative flex flex-col gap-8 p-8 sm:p-12 lg:flex-row lg:items-end lg:justify-between">

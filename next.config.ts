@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
       { source: "/beratungskonzept", destination: "/leistungen", permanent: true },
       { source: "/mandantenbereich/:path+", destination: "/mandantenbereich", permanent: true },
       { source: "/kontakt/:path+", destination: "/kontakt", permanent: true },
+      { source: "/karriere/steuerfachangestellte-lohn", destination: "/karriere/steuerfachangestellter-lohn", permanent: true },
     ];
   },
 };

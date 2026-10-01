@@ -10,32 +10,33 @@ import { Faq } from "@/components/Faq";
 import { ContactPerson } from "@/components/ContactPerson";
 import { Button, Container, Eyebrow } from "@/components/ui";
 import { contacts, getJobs, getKarriere } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 export const metadata: Metadata = {
-  title: "Karriere – Jobs als Steuerfachangestellte in Betzdorf",
+  title: "Karriere – Jobs als Steuerfachangestellter (m/w/d) in Betzdorf",
   description:
     "Arbeite bei Hammer & Partner in Betzdorf: per Du, flexible Arbeitszeiten, Homeoffice, 13,3 Gehälter, 30 Tage Urlaub und ein Team, das zusammenhält.",
 };
 
 const passt = [
-  "Du bist freundlich, hilfsbereit und hast Freude an deiner Arbeit.",
+  "Du bist freundlich, hilfsbereit und hast Freude an Deiner Arbeit.",
   "Du arbeitest gerne selbstständig und übernimmst Verantwortung.",
-  "Du magst digitale Prozesse und DATEV ist für dich kein Fremdwort.",
-  "Du willst dich weiterentwickeln – fachlich und persönlich.",
+  "Du magst digitale Prozesse und DATEV ist für Dich kein Fremdwort.",
+  "Du willst Dich weiterentwickeln – fachlich und persönlich.",
   "Du bist ein Teamplayer und hilfst Kolleginnen und Kollegen gern.",
 ];
 const passtNicht = [
   "Du arbeitest lieber allein als im Team.",
-  "Ellenbogen sind für dich wichtiger als Zusammenhalt.",
-  "Pendelordner und Papierstapel sind dir lieber als digitale Abläufe.",
-  "Weiterentwicklung ist dir eigentlich egal.",
+  "Ellenbogen sind für Dich wichtiger als Zusammenhalt.",
+  "Pendelordner und Papierstapel sind Dir lieber als digitale Abläufe.",
+  "Weiterentwicklung ist Dir eigentlich egal.",
 ];
 
 const schritte = [
-  { titel: "Bewirb dich in 60 Sekunden", text: "Ein paar Klicks, kein Anschreiben. Lebenslauf? Gerne, aber kein Muss." },
-  { titel: "Wir melden uns persönlich", text: "Wir rufen dich an und lernen uns in einem kurzen, lockeren Gespräch kennen." },
-  { titel: "Kennenlernen vor Ort", text: "Du besuchst uns in Betzdorf, lernst das Team kennen und stellst alle deine Fragen." },
-  { titel: "Willkommen im Team", text: "Passt es für beide Seiten, bekommst du deine Zusage – und wir starten gemeinsam." },
+  { titel: "Bewirb Dich in 60 Sekunden", text: "Ein paar Klicks, kein Anschreiben. Lebenslauf? Gerne, aber kein Muss." },
+  { titel: "Wir melden uns persönlich", text: "Wir rufen Dich an und lernen uns in einem kurzen, lockeren Gespräch kennen." },
+  { titel: "Kennenlernen vor Ort", text: "Du besuchst uns in Betzdorf, lernst das Team kennen und stellst alle Deine Fragen." },
+  { titel: "Willkommen im Team", text: "Passt es für beide Seiten, bekommst Du Deine Zusage – und wir starten gemeinsam." },
 ];
 
 const gallery = [
@@ -110,7 +111,7 @@ export default async function KarrierePage() {
       <section className="py-24 sm:py-32">
         <Container className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <Reveal className="relative">
-            <ParallaxImage src="/images/fotos/team-innen.webp" alt="Das Team von Hammer & Partner" className="aspect-[5/4] rounded-[2rem]" strength={40} />
+            <ParallaxImage src="/images/fotos/team-eingang.webp" alt="Das Team von Hammer & Partner vor dem Eingang" className="aspect-[5/4] rounded-[2rem]" strength={40} />
             <div className="absolute -right-3 -bottom-8 rounded-3xl bg-brand px-6 py-5 text-white shadow-2xl sm:-right-8">
               <div className="text-4xl font-semibold tracking-tight">„Du“</div>
               <div className="text-sm text-white/80">vom Azubi bis zum Chef</div>
@@ -145,19 +146,19 @@ export default async function KarrierePage() {
         </Container>
       </section>
 
-      {/* Passt das zu dir */}
+      {/* Passt das zu Dir */}
       <section className="bg-grey-50 py-24 sm:py-32">
         <Container>
           <div className="max-w-2xl">
             <Reveal><Eyebrow>Ehrlich gesagt</Eyebrow></Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-                Passt das zu dir? <span className="text-brand">Finde es heraus.</span>
+                Passt das zu Dir? <span className="text-brand">Finde es heraus.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-6 text-lg text-muted">
-                Uns ist wichtig, dass es menschlich passt. Sei ehrlich zu dir – dann wissen wir beide
+                Uns ist wichtig, dass es menschlich passt. Sei ehrlich zu Dir – dann wissen wir beide
                 schnell, ob wir zusammengehören.
               </p>
             </Reveal>
@@ -166,7 +167,7 @@ export default async function KarrierePage() {
             <Reveal className="lg:col-span-3">
               <div className="h-full rounded-[2rem] bg-brand p-8 text-white sm:p-10">
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-brand"><Check className="h-6 w-6" /></span>
-                <h3 className="mt-6 text-2xl font-semibold">Das passt zu dir</h3>
+                <h3 className="mt-6 text-2xl font-semibold">Das passt zu Dir</h3>
                 <ul className="mt-6 space-y-4">
                   {passt.map((p) => (
                     <li key={p} className="flex gap-3 text-[17px]"><Check className="mt-1 h-5 w-5 shrink-0 text-brand-200" />{p}</li>
@@ -197,7 +198,7 @@ export default async function KarrierePage() {
               <Reveal><Eyebrow>Offene Stellen</Eyebrow></Reveal>
               <Reveal delay={0.1}>
                 <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">
-                  Aktuell suchen wir <span className="text-brand">dich</span>.
+                  Aktuell suchen wir <span className="text-brand">Dich</span>.
                 </h2>
               </Reveal>
             </div>
@@ -213,7 +214,7 @@ export default async function KarrierePage() {
               <div className="flex flex-col items-start justify-between gap-6 rounded-[2rem] border-2 border-dashed border-brand/25 p-8 sm:flex-row sm:items-center sm:p-10">
                 <div>
                   <h3 className="text-2xl font-semibold tracking-tight">Nichts Passendes dabei?</h3>
-                  <p className="mt-2 text-muted">Wir freuen uns immer über Menschen, die zu uns passen. Bewirb dich einfach initiativ.</p>
+                  <p className="mt-2 text-muted">Wir freuen uns immer über Menschen, die zu uns passen. Bewirb Dich einfach initiativ.</p>
                 </div>
                 <Button href="/karriere/initiativbewerbung" variant="outline">Initiativ bewerben</Button>
               </div>
@@ -230,11 +231,11 @@ export default async function KarrierePage() {
             <Reveal><Eyebrow light>Deine Vorteile</Eyebrow></Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-                Das erwartet dich bei uns.
+                Das erwartet Dich bei uns.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="mt-6 text-lg text-white/75">Wir wollen, dass du dich wohlfühlst und gerne zur Arbeit kommst. Deshalb gibt es bei uns mehr als nur ein gutes Gehalt.</p>
+              <p className="mt-6 text-lg text-white/75">Wir wollen, dass Du Dich wohlfühlst und gerne zur Arbeit kommst. Deshalb gibt es bei uns mehr als nur ein gutes Gehalt.</p>
             </Reveal>
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -260,7 +261,7 @@ export default async function KarrierePage() {
             <div className="max-w-2xl">
               <Reveal><Eyebrow>Einblicke</Eyebrow></Reveal>
               <Reveal delay={0.1}>
-                <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">So sieht dein Arbeitsalltag aus.</h2>
+                <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">So sieht Dein Arbeitsalltag aus.</h2>
               </Reveal>
             </div>
             <Reveal delay={0.2}>
@@ -270,7 +271,7 @@ export default async function KarrierePage() {
           <div className="mt-14 grid grid-flow-dense auto-rows-[180px] grid-cols-2 gap-4 sm:auto-rows-[240px] lg:grid-cols-4">
             {gallery.map((g, i) => (
               <Reveal key={g.src} delay={(i % 4) * 0.06} className={`relative overflow-hidden rounded-3xl ${g.cls}`}>
-                <Image src={g.src} alt="Arbeitsalltag bei Hammer & Partner" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
+                <Image src={g.src} alt="Arbeitsalltag bei Hammer & Partner" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" style={{ objectPosition: focus(g.src) }} />
               </Reveal>
             ))}
           </div>
@@ -283,7 +284,7 @@ export default async function KarrierePage() {
           <div className="mx-auto max-w-2xl text-center">
             <Reveal><Eyebrow>Bewerbung</Eyebrow></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">So läuft deine Bewerbung.</h2>
+              <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">So läuft Deine Bewerbung.</h2>
             </Reveal>
           </div>
           <ol className="relative mt-16 grid gap-5 md:grid-cols-4">
@@ -311,7 +312,7 @@ export default async function KarrierePage() {
                 <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">Noch Fragen?</h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-6 text-lg text-muted">Frag uns einfach – wir antworten dir persönlich.</p>
+                <p className="mt-6 text-lg text-muted">Frag uns einfach – wir antworten Dir persönlich.</p>
               </Reveal>
               <Reveal delay={0.3} className="mt-10">
                 <ContactPerson {...contact} />

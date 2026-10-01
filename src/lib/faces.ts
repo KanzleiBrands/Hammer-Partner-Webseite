@@ -35,8 +35,8 @@ export const faceZones: Record<string, [number, number, number, number]> = {
   "laufende-steuerberatung": [0.3, 0.05, 0.7, 0.6],
   "vorausschauende-steuergestaltung": [0.62, 0.18, 0.82, 0.45],
   "digitale-buchhaltung-und-lohn": [0.33, 0.15, 0.58, 0.55],
-  "betriebswirtschaftliche-beratung": [0.0, 0.08, 0.65, 0.5],
-  "steuerfachangestellte-lohn": [0.35, 0.05, 0.62, 0.48],
+  "betriebswirtschaftliche-beratung": [0.38, 0.2, 0.65, 0.62],
+  "steuerfachangestellter-lohn": [0.35, 0.05, 0.62, 0.48],
 };
 
 function key(src: string) {

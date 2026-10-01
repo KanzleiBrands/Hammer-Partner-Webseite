@@ -11,6 +11,7 @@ import { StickyApply } from "@/components/StickyApply";
 import { JobCard } from "@/components/JobCard";
 import { Container, Eyebrow } from "@/components/ui";
 import { contacts, formatSalary, getJob, getJobs, getKarriere, getSettings } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 export async function generateStaticParams() {
   const jobs = await getJobs();
@@ -111,7 +112,7 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
             </div>
             <Reveal delay={0.5} className="lg:col-span-4">
               <div className="rounded-3xl bg-white/10 p-6 ring-1 ring-white/15 backdrop-blur-md">
-                <p className="text-lg font-medium">Wir suchen dich zur Verstärkung unseres Teams in Betzdorf!</p>
+                <p className="text-lg font-medium">Wir suchen Dich zur Verstärkung unseres Teams in Betzdorf!</p>
                 <a href="#bewerben" className="mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-4 font-semibold text-brand transition hover:bg-brand-50">
                   In 60 Sekunden bewerben
                 </a>
@@ -134,7 +135,7 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
               <Reveal delay={0.15}>
                 <p className="mt-6 text-xl leading-relaxed text-ink/80">{job.teaser}</p>
                 <p className="mt-5 text-lg leading-relaxed text-muted">
-                  Bei Hammer &amp; Partner arbeitest du selbstständig, mit modernen digitalen Prozessen
+                  Bei Hammer &amp; Partner arbeitest Du selbstständig, mit modernen digitalen Prozessen
                   und in einem Team, das sich gegenseitig unterstützt. Flache Hierarchien, kurze Wege
                   und ein „Du“ vom ersten Tag an sind bei uns selbstverständlich.
                 </p>
@@ -174,7 +175,7 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
             <div className="space-y-5 lg:sticky lg:top-28">
               <Reveal>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem]">
-                  <Image src="/images/fotos/kolleginnen-ordner.webp" alt="Kolleginnen bei Hammer & Partner" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" />
+                  <Image src="/images/fotos/kolleginnen-ordner.webp" alt="Kolleginnen bei Hammer & Partner" fill sizes="(min-width:1024px) 40vw, 100vw" className="object-cover" style={{ objectPosition: focus("/images/fotos/kolleginnen-ordner.webp") }} />
                   <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/90 p-5 backdrop-blur">
                     <div className="text-sm text-muted">Gehalt</div>
                     <div className="text-2xl font-semibold tracking-tight text-brand">{salary} <span className="text-base font-medium text-muted">brutto/Monat</span></div>
@@ -192,7 +193,7 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
         <Container>
           <Reveal><Eyebrow>Deine Vorteile</Eyebrow></Reveal>
           <Reveal delay={0.1}>
-            <h2 className="mt-6 text-3xl font-semibold tracking-tight sm:text-5xl">Das bieten wir dir.</h2>
+            <h2 className="mt-6 text-3xl font-semibold tracking-tight sm:text-5xl">Das bieten wir Dir.</h2>
           </Reveal>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {karriere.benefits.map((b, i) => (
@@ -216,11 +217,11 @@ export default async function JobPage(props: PageProps<"/karriere/[slug]">) {
           <div className="lg:col-span-5">
             <Reveal><Eyebrow>Klingt interessant?</Eyebrow></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">Dann bewirb dich jetzt – in 60 Sekunden.</h2>
+              <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">Dann bewirb Dich jetzt – in 60 Sekunden.</h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-6 text-lg text-muted">
-                Kein Anschreiben, keine Hürden. Beantworte vier kurze Fragen und hinterlasse deine
+                Kein Anschreiben, keine Hürden. Beantworte vier kurze Fragen und hinterlasse Deine
                 Kontaktdaten. Deine Bewerbung behandeln wir selbstverständlich vertraulich.
               </p>
             </Reveal>

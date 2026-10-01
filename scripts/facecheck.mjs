@@ -6,7 +6,7 @@ import fs from 'fs';
 const src = fs.readFileSync(new URL('../src/lib/faces.ts', import.meta.url), 'utf8');
 const zones = {};
 for (const m of src.matchAll(/"?([a-z0-9-]+)"?: \[([0-9., ]+)\]/g)) zones[m[1]] = m[2].split(',').map(Number);
-const pages = (process.argv[2] || '/,/leistungen,/ueber-uns,/karriere,/karriere/steuerfachangestellte-lohn,/karriere/initiativbewerbung,/kontakt,/mandantenbereich').split(',');
+const pages = (process.argv[2] || '/,/leistungen,/ueber-uns,/karriere,/karriere/steuerfachangestellter-lohn,/karriere/initiativbewerbung,/kontakt,/mandantenbereich').split(',');
 const sizes = (process.env.SIZES || '1440x900,1280x800,1024x768,768x1024,390x664,320x568').split(',').map(s => s.split('x').map(Number));
 const b = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH, args: ['--no-sandbox'] });
 let problems = 0;

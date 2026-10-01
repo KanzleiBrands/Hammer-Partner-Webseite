@@ -2,20 +2,30 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import { RevealWords } from "./Reveal";
 
-const slides = [
-  { src: "/images/fotos/team-aussen.webp", alt: "Das Team von Hammer & Partner vor der Kanzlei in Betzdorf", pos: "50% 60%" },
-  { src: "/images/fotos/besprechung-lachen.webp", alt: "Beratungsgespräch im Besprechungsraum", pos: "50% 35%" },
-  { src: "/images/fotos/kollegen-lachen.webp", alt: "Zwei Kollegen lachen gemeinsam am Arbeitsplatz", pos: "50% 40%" },
-  { src: "/images/fotos/empfang-hund.webp", alt: "Empfang der Kanzlei mit Bürohund", pos: "50% 45%" },
-  { src: "/images/fotos/stehpult.webp", alt: "Moderner Arbeitsplatz mit Stehpult", pos: "50% 40%" },
+// Bewusst ruhige Motive: Gesichter liegen nie hinter der Überschrift (rechts oder ganz ohne Personen).
+const allSlides = [
+  { src: "/images/fotos/gebaeude.webp", alt: "Das Kanzleigebäude von Hammer & Partner in Betzdorf", pos: "50% 40%" },
+  { src: "/images/fotos/besprechung-flipchart.webp", alt: "Besprechung am Flipchart", pos: "85% 40%", desktopOnly: true },
+  { src: "/images/fotos/empfang.webp", alt: "Empfang der Kanzlei", pos: "50% 50%" },
+  { src: "/images/fotos/konferenzraum.webp", alt: "Besprechungsraum der Kanzlei", pos: "50% 50%" },
 ];
 
-const DURATION = 6500;
+const DURATION = 8000;
+
+// Mobil steht der Text über dem ganzen Bild – dort nur Motive ohne Gesichter.
+const desktopQuery = "(min-width: 1024px)";
+function subscribe(cb: () => void) {
+  const m = window.matchMedia(desktopQuery);
+  m.addEventListener("change", cb);
+  return () => m.removeEventListener("change", cb);
+}
+const getDesktop = () => window.matchMedia(desktopQuery).matches;
+const getServerDesktop = () => false;
 
 export function HomeHero({
   eyebrow,
@@ -32,7 +42,10 @@ export function HomeHero({
   phone: string;
   phoneLink: string;
 }) {
-  const [index, setIndex] = useState(0);
+  const desktop = useSyncExternalStore(subscribe, getDesktop, getServerDesktop);
+  const slides = desktop ? allSlides : allSlides.filter((s) => !("desktopOnly" in s));
+  const [rawIndex, setIndex] = useState(0);
+  const index = rawIndex % slides.length;
   const reduce = useReducedMotion();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
@@ -44,7 +57,7 @@ export function HomeHero({
     if (video || reduce) return;
     const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), DURATION);
     return () => clearInterval(t);
-  }, [video, reduce]);
+  }, [video, reduce, slides.length]);
 
   return (
     <section ref={ref} className="grain relative min-h-[100svh] overflow-hidden bg-brand-900 text-white sm:min-h-[640px]">

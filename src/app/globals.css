@@ -24,7 +24,7 @@
   --animate-scroll-dot: scroll-dot 2s ease-in-out infinite;
 
   @keyframes kenburns {
-    from { transform: scale(1.12) translate3d(0, 0, 0); }
+    from { transform: scale(1.06) translate3d(0, 0, 0); }
     to { transform: scale(1) translate3d(0, 0, 0); }
   }
   @keyframes marquee {

@@ -1,13 +1,14 @@
 import { hy } from "@/lib/hyphen";
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Check, X, CircleAlert } from "lucide-react";
+import { Check, CircleAlert } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { ParallaxImage } from "@/components/Parallax";
 import { Marquee } from "@/components/Marquee";
 import { Button, Container, Eyebrow } from "@/components/ui";
 import { getLeistungen } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 export const metadata: Metadata = {
   title: "Leistungen – Steuerberatung, Gestaltung & digitale Buchhaltung",
@@ -16,24 +17,24 @@ export const metadata: Metadata = {
 };
 
 const probleme = [
-  { titel: "Die Nachzahlung kommt überraschend", text: "Du erfährst erst Monate später, was du hättest zurücklegen müssen." },
+  { titel: "Die Nachzahlung kommt überraschend", text: "Du erfährst erst Monate später, was Du hättest zurücklegen müssen." },
   { titel: "Pendelordner und Papierchaos", text: "Belege sammeln, kopieren, vorbeibringen – und dann wochenlang warten." },
-  { titel: "Keiner denkt voraus", text: "Dein Steuerberater erledigt die Pflicht, aber niemand zeigt dir Gestaltungsmöglichkeiten." },
-  { titel: "Zahlen, die niemand erklärt", text: "Du bekommst Auswertungen, aber keiner bespricht mit dir, was sie bedeuten." },
+  { titel: "Keiner denkt voraus", text: "Dein Steuerberater erledigt die Pflicht, aber niemand zeigt Dir Gestaltungsmöglichkeiten." },
+  { titel: "Zahlen, die niemand erklärt", text: "Du bekommst Auswertungen, aber keiner bespricht mit Dir, was sie bedeuten." },
 ];
 
-const vergleich = [
-  ["Rückblickende Erledigung der Pflichten", "Vorausschauende Planung – bevor Entscheidungen fallen"],
-  ["Papier, Ordner und Postweg", "Papierlos mit DATEV Unternehmen online"],
-  ["Zahlen erst Monate später", "Auswertungen in Echtzeit"],
-  ["Förmlich und distanziert", "Persönlich, auf Augenhöhe und per Du"],
-  ["Fachchinesisch", "Klare Worte und ehrliche Einschätzungen"],
+const anspruch = [
+  ["Vorausschauend", "Wir planen mit Dir, bevor Entscheidungen fallen – nicht erst im Nachhinein."],
+  ["Papierlos", "Belege, Auswertungen und Austausch digital über DATEV Unternehmen online."],
+  ["Aktuell", "Deine Zahlen in Echtzeit, damit Du jederzeit weißt, wo Du stehst."],
+  ["Persönlich", "Auf Augenhöhe und per Du – mit festen Ansprechpartnern."],
+  ["Klar", "Verständliche Worte und ehrliche Einschätzungen statt Fachchinesisch."],
 ];
 
 const prozess = [
-  { titel: "Kennenlernen", text: "Im Erstgespräch hören wir zu: Wo stehst du, was hast du vor, wo drückt der Schuh?" },
-  { titel: "Analyse", text: "Wir schauen uns deine Unterlagen an und zeigen dir, wo Potenziale und Risiken liegen." },
-  { titel: "Umstellung", text: "Wir richten die digitale Zusammenarbeit ein und übernehmen den Wechsel für dich." },
+  { titel: "Kennenlernen", text: "Im Erstgespräch hören wir zu: Wo stehst Du, was hast Du vor, wo drückt der Schuh?" },
+  { titel: "Analyse", text: "Wir schauen uns Deine Unterlagen an und zeigen Dir, wo Potenziale und Risiken liegen." },
+  { titel: "Umstellung", text: "Wir richten die digitale Zusammenarbeit ein und übernehmen den Wechsel für Dich." },
   { titel: "Laufende Begleitung", text: "Wir bleiben dran – mit regelmäßigen Gesprächen und dem Blick nach vorn." },
 ];
 
@@ -44,9 +45,9 @@ export default async function LeistungenPage() {
       <PageHero
         eyebrow="Leistungen"
         title="Steuerberatung, die nach vorn denkt."
-        text="Die Pflicht erledigen wir zuverlässig. Den Unterschied machen Weitblick, digitale Prozesse und echte Begleitung für dich und dein Unternehmen."
+        text="Die Pflicht erledigen wir zuverlässig. Den Unterschied machen Weitblick, digitale Prozesse und echte Begleitung für Dich und Dein Unternehmen."
         image="/images/fotos/besprechung-flipchart.webp"
-        position="50% 35%"
+        position="80% 35%"
       >
         <div className="mt-10 flex flex-wrap gap-2">
           {leistungen.map((l) => (
@@ -57,11 +58,11 @@ export default async function LeistungenPage() {
         </div>
       </PageHero>
 
-      {/* Kennst du das */}
+      {/* Kennst Du das */}
       <section className="py-24 sm:py-32">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
-            <Reveal><Eyebrow>Kennst du das?</Eyebrow></Reveal>
+            <Reveal><Eyebrow>Kennst Du das?</Eyebrow></Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">Steuerberatung muss sich nicht so anfühlen.</h2>
             </Reveal>
@@ -123,37 +124,26 @@ export default async function LeistungenPage() {
         ))}
       </div>
 
-      {/* Vergleich */}
+      {/* Anspruch */}
       <section className="grain relative overflow-hidden bg-brand-900 py-24 text-white sm:py-32">
         <div className="pointer-events-none absolute -right-40 -bottom-40 h-[34rem] w-[34rem] rounded-full bg-brand/70 blur-[140px]" />
         <Container className="relative">
           <div className="mx-auto max-w-2xl text-center">
-            <Reveal><Eyebrow light>Der Unterschied</Eyebrow></Reveal>
+            <Reveal><Eyebrow light>Unser Anspruch</Eyebrow></Reveal>
             <Reveal delay={0.1}>
-              <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">Klassisch – oder Hammer &amp; Partner?</h2>
+              <h2 className="text-balance mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">So arbeiten wir für Dich.</h2>
             </Reveal>
           </div>
-          <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2">
-            <Reveal>
-              <div className="h-full rounded-[2rem] bg-white/[0.05] p-8 ring-1 ring-white/10 sm:p-10">
-                <div className="text-sm font-semibold uppercase tracking-[0.2em] text-white/50">Klassisch</div>
-                <ul className="mt-8 space-y-5">
-                  {vergleich.map(([a]) => (
-                    <li key={a} className="flex gap-3 text-white/70"><X className="mt-0.5 h-5 w-5 shrink-0 text-white/40" />{a}</li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="h-full rounded-[2rem] bg-white p-8 text-ink shadow-2xl sm:p-10">
-                <div className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">Mit Hammer &amp; Partner</div>
-                <ul className="mt-8 space-y-5">
-                  {vergleich.map(([, b]) => (
-                    <li key={b} className="flex gap-3 font-medium"><span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand text-white"><Check className="h-3 w-3" /></span>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
+          <div className="mx-auto mt-14 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-5">
+            {anspruch.map(([titel, text], i) => (
+              <Reveal key={titel} delay={i * 0.06}>
+                <div className="h-full rounded-[2rem] bg-white/[0.05] p-6 ring-1 ring-white/10">
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-brand"><Check className="h-4 w-4" /></span>
+                  <h3 className="mt-6 text-lg font-semibold">{titel}</h3>
+                  <p className="text-pretty mt-3 leading-relaxed text-white/70">{text}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </Container>
       </section>
@@ -168,7 +158,7 @@ export default async function LeistungenPage() {
                 <h2 className="mt-6 text-4xl font-semibold tracking-tight sm:text-5xl">So starten wir gemeinsam.</h2>
               </Reveal>
               <Reveal delay={0.2}>
-                <p className="mt-6 text-lg text-muted">Ein Wechsel zu uns ist einfacher, als du denkst. Wir kümmern uns um alles Organisatorische.</p>
+                <p className="mt-6 text-lg text-muted">Ein Wechsel zu uns ist einfacher, als Du denkst. Wir kümmern uns um alles Organisatorische.</p>
               </Reveal>
               <Reveal delay={0.3}><div className="mt-8"><Button href="/kontakt">Jetzt starten</Button></div></Reveal>
             </div>
@@ -194,7 +184,7 @@ export default async function LeistungenPage() {
       </section>
 
       <section className="relative overflow-hidden">
-        <Image src="/images/fotos/beratung-gespraech.webp" alt="" fill sizes="100vw" className="object-cover" />
+        <Image src="/images/fotos/beratung-gespraech.webp" alt="" fill sizes="100vw" className="object-cover" style={{ objectPosition: focus("/images/fotos/beratung-gespraech.webp") }} />
         <div className="absolute inset-0 bg-brand-900/80" />
         <Container className="relative py-24 text-center text-white sm:py-32">
           <Reveal>

@@ -9,22 +9,22 @@ type Question = { key: string; frage: string; optionen: string[] };
 const questions: Question[] = [
   {
     key: "erfahrung",
-    frage: "Wie viel Berufserfahrung bringst du mit?",
+    frage: "Wie viel Berufserfahrung bringst Du mit?",
     optionen: ["Berufseinsteiger/in", "1–3 Jahre", "3–5 Jahre", "Mehr als 5 Jahre"],
   },
   {
     key: "datev",
-    frage: "Wie sicher bist du im Umgang mit DATEV?",
+    frage: "Wie sicher bist Du im Umgang mit DATEV?",
     optionen: ["Sehr sicher – täglich im Einsatz", "Gute Kenntnisse", "Grundkenntnisse", "Noch keine Erfahrung"],
   },
   {
     key: "umfang",
-    frage: "In welchem Umfang möchtest du arbeiten?",
+    frage: "In welchem Umfang möchtest Du arbeiten?",
     optionen: ["Vollzeit (40 Std.)", "Vollzeit reduziert (30–39 Std.)", "Teilzeit (20–29 Std.)", "Bin noch flexibel"],
   },
   {
     key: "start",
-    frage: "Wann könntest du bei uns starten?",
+    frage: "Wann könntest Du bei uns starten?",
     optionen: ["Sofort", "In 1–3 Monaten", "In mehr als 3 Monaten", "Weiß ich noch nicht"],
   },
 ];
@@ -75,10 +75,10 @@ export function ApplicationForm({ jobTitle, jobSlug }: { jobTitle: string; jobSl
               <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-50 text-emerald-600">
                 <Check className="h-10 w-10" />
               </span>
-              <h3 className="mt-6 text-3xl font-semibold tracking-tight">Danke, deine Bewerbung ist da!</h3>
+              <h3 className="mt-6 text-3xl font-semibold tracking-tight">Danke, Deine Bewerbung ist da!</h3>
               <p className="mx-auto mt-4 max-w-md text-muted">
-                Wir melden uns persönlich bei dir, um ein unverbindliches Kennenlernen zu vereinbaren.
-                Wir freuen uns auf dich!
+                Wir melden uns persönlich bei Dir, um ein unverbindliches Kennenlernen zu vereinbaren.
+                Wir freuen uns auf Dich!
               </p>
             </motion.div>
           ) : step < questions.length ? (
@@ -127,7 +127,7 @@ export function ApplicationForm({ jobTitle, jobSlug }: { jobTitle: string; jobSl
               transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6"
             >
-              <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Fast geschafft! Wie erreichen wir dich?</h3>
+              <h3 className="text-2xl font-semibold tracking-tight sm:text-3xl">Fast geschafft! Wie erreichen wir Dich?</h3>
               <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <Field label="Vor- und Nachname" name="name" required autoComplete="name" />

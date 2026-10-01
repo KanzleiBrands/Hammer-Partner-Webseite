@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion, useScroll, useTransform, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { focusCentered } from "@/lib/faces";
+import { focus, focusCentered } from "@/lib/faces";
 
 export function ParallaxImage({
   src,
@@ -50,7 +50,7 @@ export function ParallaxImage({
           fill
           sizes={sizes}
           className="object-cover"
-          style={mobileAspect ? { objectPosition: "var(--mpos, 50% 50%)" } : undefined}
+          style={{ objectPosition: `var(--mpos, ${focus(src)})` }}
         />
       </motion.div>
     </div>

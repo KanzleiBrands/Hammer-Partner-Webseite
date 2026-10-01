@@ -66,3 +66,7 @@ Die Zuordnung übernimmt Claude.
     (`mobileAspect` in `src/components/Parallax.tsx`, Daten aus `src/lib/faces.ts`).
 - `npm run test:faces` prüft weiterhin alle Seiten, meldet aber jetzt bewusst Text über
   Gesichtern in den Headern. Das Skript dient nur noch als Hilfe bei neuen Fotos.
+- Bildausschnitte: Fotos ohne festen Ausschnitt nutzen `focus()` aus `src/lib/faces.ts`
+  (`object-position` nach Kopfbereich). Neues Foto → Eintrag in `faces.ts` ergänzen.
+- Startseiten-Header: nur Motive, bei denen keine Gesichter hinter der Überschrift liegen
+  (Flipchart-Motiv nur auf dem Desktop, Gesicht steht rechts neben dem Text).

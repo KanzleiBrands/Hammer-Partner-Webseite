@@ -12,11 +12,12 @@ import { Marquee } from "@/components/Marquee";
 import { JobCard } from "@/components/JobCard";
 import { Button, Container, Eyebrow } from "@/components/ui";
 import { getHome, getJobs, getLeistungen, getSettings } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 const werte = [
-  { icon: HandHeart, titel: "Wertschätzend", text: "Wir begegnen dir auf Augenhöhe – ob Solo-Selbstständige oder Mittelständler." },
-  { icon: MessageCircle, titel: "Ehrlich & transparent", text: "Klare Worte statt Fachchinesisch. Du weißt immer, woran du bist." },
-  { icon: ShieldCheck, titel: "Zuverlässig", text: "Fristen, Zahlen, Zusagen: Auf uns kannst du dich verlassen." },
+  { icon: HandHeart, titel: "Wertschätzend", text: "Wir begegnen Dir auf Augenhöhe – ob Solo-Selbstständige oder Mittelständler." },
+  { icon: MessageCircle, titel: "Ehrlich & transparent", text: "Klare Worte statt Fachchinesisch. Du weißt immer, woran Du bist." },
+  { icon: ShieldCheck, titel: "Zuverlässig", text: "Fristen, Zahlen, Zusagen: Auf uns kannst Du Dich verlassen." },
   { icon: Handshake, titel: "Vertrauensvoll", text: "Viele Mandate begleiten wir seit Jahrzehnten – das ist kein Zufall." },
 ];
 
@@ -69,7 +70,7 @@ export default async function HomePage() {
         <Container className="grid items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div className="lg:col-span-6">
             <Reveal>
-              <Eyebrow>Für uns steht der Mensch im Mittelpunkt</Eyebrow>
+              <Eyebrow>Persönlich. Ehrlich. Nah.</Eyebrow>
             </Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-6xl">
@@ -86,12 +87,12 @@ export default async function HomePage() {
                   <div className="flex -space-x-3">
                     {["arbeitsplatz-1", "arbeitsplatz-2", "arbeitsplatz-3", "arbeitsplatz-4"].map((n) => (
                       <span key={n} className="relative h-11 w-11 overflow-hidden rounded-full ring-2 ring-white">
-                        <Image src={`/images/fotos/${n}.webp`} alt="" fill sizes="44px" className="object-cover" />
+                        <Image src={`/images/fotos/${n}.webp`} alt="" fill sizes="44px" className="object-cover" style={{ objectPosition: focus(`/images/fotos/${n}.webp`) }} />
                       </span>
                     ))}
                   </div>
                   <span className="text-sm leading-tight text-muted">
-                    <strong className="block text-ink">15 Menschen</strong>ein Team, per Du
+                    <strong className="block text-ink">15 Kolleginnen &amp; Kollegen</strong>ein Team, per Du
                   </span>
                 </div>
               </div>
@@ -138,7 +139,7 @@ export default async function HomePage() {
             <Reveal delay={0.2} className="max-w-md">
               <p className="text-lg leading-relaxed text-muted">
                 Die Pflicht ist für uns selbstverständlich. Den Unterschied machen Weitblick, digitale
-                Prozesse und ein Team, das dein Unternehmen wirklich versteht.
+                Prozesse und ein Team, das Dein Unternehmen wirklich versteht.
               </p>
             </Reveal>
           </div>
@@ -157,6 +158,7 @@ export default async function HomePage() {
                       fill
                       sizes="(min-width: 768px) 50vw, 100vw"
                       className="object-cover opacity-80 transition-all duration-[1.2s] ease-out group-hover:scale-105 group-hover:opacity-50"
+                      style={{ objectPosition: focus(l.bild) }}
                     />
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-900 via-brand-900/55 to-transparent" />
@@ -273,7 +275,7 @@ export default async function HomePage() {
                 <Reveal><Eyebrow>Unser Versprechen</Eyebrow></Reveal>
                 <Reveal delay={0.1}>
                   <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl">
-                    Ob wir besser sind? Das entscheidest du.
+                    Ob wir besser sind? Das entscheidest Du.
                   </h2>
                 </Reveal>
                 <Reveal delay={0.2}>
@@ -316,7 +318,7 @@ export default async function HomePage() {
         <Container className="absolute inset-x-0 bottom-0 pb-16 text-white">
           <Reveal>
             <h2 className="text-balance max-w-3xl text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-              15 Menschen. Ein Team. Per Du – vom Azubi bis zum Chef.
+              15 Köpfe. Ein Team. Per Du – vom Azubi bis zum Chef.
             </h2>
           </Reveal>
           <Reveal delay={0.15}>
@@ -367,13 +369,13 @@ export default async function HomePage() {
           <Reveal delay={0.15} className="relative">
             <div className="grid h-full grid-cols-2 gap-4">
               <div className="relative row-span-2 min-h-[380px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/kolleginnen-ordner.webp" alt="Zwei Kolleginnen lachen gemeinsam" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" />
+                <Image src="/images/fotos/headset.webp" alt="Kollegin am Telefon mit Headset" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover" style={{ objectPosition: focus("/images/fotos/headset.webp") }} />
               </div>
               <div className="relative min-h-[180px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/buerohund.webp" alt="Der Bürohund liegt unter dem Schreibtisch" fill sizes="25vw" className="object-cover" />
+                <Image src="/images/fotos/buerohund.webp" alt="Der Bürohund liegt unter dem Schreibtisch" fill sizes="25vw" className="object-cover" style={{ objectPosition: focus("/images/fotos/buerohund.webp") }} />
               </div>
               <div className="relative min-h-[180px] overflow-hidden rounded-[2rem]">
-                <Image src="/images/fotos/stehpult.webp" alt="Arbeiten am höhenverstellbaren Schreibtisch" fill sizes="25vw" className="object-cover" />
+                <Image src="/images/fotos/stehpult.webp" alt="Arbeiten am höhenverstellbaren Schreibtisch" fill sizes="25vw" className="object-cover" style={{ objectPosition: focus("/images/fotos/stehpult.webp") }} />
               </div>
             </div>
           </Reveal>
@@ -389,12 +391,12 @@ export default async function HomePage() {
             <Reveal><Eyebrow light>Kontakt</Eyebrow></Reveal>
             <Reveal delay={0.1}>
               <h2 className="text-balance mt-6 text-4xl font-semibold leading-[1.05] tracking-tight sm:text-6xl">
-                Lass uns über deine Ziele sprechen.
+                Lass uns über Deine Ziele sprechen.
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-6 max-w-lg text-lg text-white/75">
-                Ob Gründung, Wechsel oder eine konkrete Frage: Wir nehmen uns Zeit für dich – in
+                Ob Gründung, Wechsel oder eine konkrete Frage: Wir nehmen uns Zeit für Dich – in
                 Betzdorf oder digital.
               </p>
             </Reveal>
@@ -409,7 +411,7 @@ export default async function HomePage() {
           </div>
           <Reveal delay={0.2}>
             <div className="rounded-3xl bg-white/10 p-8 ring-1 ring-white/20 backdrop-blur-md sm:p-10">
-              <div className="text-sm font-medium uppercase tracking-[0.2em] text-white/60">So findest du uns</div>
+              <div className="text-sm font-medium uppercase tracking-[0.2em] text-white/60">So findest Du uns</div>
               <p className="mt-4 text-2xl font-semibold">
                 {settings.strasse}
                 <br />

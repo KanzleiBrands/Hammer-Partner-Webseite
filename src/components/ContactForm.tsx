@@ -33,8 +33,8 @@ export function ContactForm() {
         <span className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-emerald-50 text-emerald-600">
           <Check className="h-10 w-10" />
         </span>
-        <h3 className="mt-6 text-3xl font-semibold tracking-tight">Danke für deine Nachricht!</h3>
-        <p className="mx-auto mt-4 max-w-md text-muted">Wir melden uns so schnell wie möglich bei dir.</p>
+        <h3 className="mt-6 text-3xl font-semibold tracking-tight">Danke für Deine Nachricht!</h3>
+        <p className="mx-auto mt-4 max-w-md text-muted">Wir melden uns so schnell wie möglich bei Dir.</p>
       </div>
     );
   }

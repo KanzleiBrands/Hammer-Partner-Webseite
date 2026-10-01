@@ -16,14 +16,14 @@ export default async function MandantenPage() {
     {
       icon: Cloud,
       titel: "DATEV Unternehmen online",
-      text: "Belege hochladen, Auswertungen ansehen, Zahlungen vorbereiten – deine digitale Buchhaltung an einem Ort.",
+      text: "Belege hochladen, Auswertungen ansehen, Zahlungen vorbereiten – Deine digitale Buchhaltung an einem Ort.",
       href: s.duoUrl,
       cta: "Zur Anmeldung",
     },
     {
       icon: Headset,
       titel: "Mandanten-Fernbetreuung",
-      text: "Du brauchst Hilfe am Bildschirm? Starte die Fernwartung und wir unterstützen dich direkt – sicher und unkompliziert.",
+      text: "Du brauchst Hilfe am Bildschirm? Starte die Fernwartung und wir unterstützen Dich direkt – sicher und unkompliziert.",
       href: s.fernbetreuungUrl,
       cta: "Fernbetreuung starten",
     },
@@ -31,15 +31,15 @@ export default async function MandantenPage() {
   const schritte = [
     { icon: ScanLine, titel: "Beleg erfassen", text: "Mit der App DATEV Upload mobil oder per Scanner." },
     { icon: Upload, titel: "Hochladen", text: "Direkt in Unternehmen online – verschlüsselt und sicher." },
-    { icon: ChartLine, titel: "Zahlen sehen", text: "Wir buchen, du siehst deine Auswertungen tagesaktuell." },
+    { icon: ChartLine, titel: "Zahlen sehen", text: "Wir buchen, Du siehst Deine Auswertungen tagesaktuell." },
   ];
   return (
     <>
       <PageHero
         compact
         eyebrow="Mandantenbereich"
-        title="Alles, was du für die Zusammenarbeit brauchst."
-        text="Schneller Zugang zu deinen digitalen Werkzeugen – rund um die Uhr."
+        title="Alles, was Du für die Zusammenarbeit brauchst."
+        text="Schneller Zugang zu Deinen digitalen Werkzeugen – rund um die Uhr."
         image="/images/fotos/schreibtisch.webp"
         position="50% 40%"
       />
@@ -94,7 +94,7 @@ export default async function MandantenPage() {
             <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-3xl bg-white p-8 ring-1 ring-ink/5 sm:flex-row sm:items-center">
               <div>
                 <h3 className="text-xl font-semibold">Fragen zur Einrichtung?</h3>
-                <p className="mt-1 text-muted">Wir helfen dir beim Start mit Unternehmen online – ruf uns einfach an.</p>
+                <p className="mt-1 text-muted">Wir helfen Dir beim Start mit Unternehmen online – ruf uns einfach an.</p>
               </div>
               <Button href={`tel:${s.telefonLink}`} arrow={false}>{s.telefon}</Button>
             </div>

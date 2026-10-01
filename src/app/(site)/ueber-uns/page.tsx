@@ -7,6 +7,7 @@ import { ParallaxImage } from "@/components/Parallax";
 import { Counter } from "@/components/Counter";
 import { Button, Container, Eyebrow } from "@/components/ui";
 import { contacts, getSettings } from "@/lib/content";
+import { focus } from "@/lib/faces";
 
 export const metadata: Metadata = {
   title: "Über uns – das Team von Hammer & Partner in Betzdorf",
@@ -32,7 +33,7 @@ const geschichte = [
 
 const galerie = [
   "arbeitsplatz-1", "arbeitsplatz-2", "arbeitsplatz-3", "arbeitsplatz-4", "arbeitsplatz-5", "arbeitsplatz-6",
-  "headset", "arbeitsplatz-lachen",
+  "team-jung", "arbeitsplatz-lachen",
 ];
 
 export default async function UeberUnsPage() {
@@ -192,7 +193,7 @@ export default async function UeberUnsPage() {
                 delay={(i % 4) * 0.06}
                 className={`relative overflow-hidden rounded-3xl ${i === 0 || i === 5 ? "row-span-2" : ""} ${i === 3 || i === 7 ? "col-span-2" : ""}`}
               >
-                <Image src={`/images/fotos/${g}.webp`} alt="Teammitglied bei der Arbeit" fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" />
+                <Image src={`/images/fotos/${g}.webp`} alt="Teammitglied bei der Arbeit" fill sizes="(min-width:768px) 25vw, 50vw" className="object-cover transition-transform duration-[1.2s] hover:scale-105" style={{ objectPosition: focus(`/images/fotos/${g}.webp`) }} />
               </Reveal>
             ))}
           </div>
@@ -214,7 +215,7 @@ export default async function UeberUnsPage() {
             </Reveal>
             <Reveal delay={0.2}>
               <p className="mt-6 text-lg leading-relaxed text-muted">
-                Unsere Kanzlei findest du in der {settings.strasse} in {settings.ort.replace(/^\d+\s/, "")} –
+                Unsere Kanzlei findest Du in der {settings.strasse} in {settings.ort.replace(/^\d+\s/, "")} –
                 im markanten weißen Haus mit dem runden Turm. Parkplätze direkt vor der Tür, und wer
                 nicht vorbeikommen möchte, arbeitet einfach digital mit uns.
               </p>
