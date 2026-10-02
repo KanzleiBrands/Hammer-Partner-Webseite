@@ -27,7 +27,7 @@ export default async function KontaktPage() {
         title="Lass uns sprechen."
         text="Ob Erstgespräch, Wechsel oder eine konkrete Frage: Wir nehmen uns Zeit für Dich."
         image="/images/fotos/empfang-hund.webp"
-        position="50% 48%"
+        position="50% 25%"
       />
       <section className="py-20 sm:py-28">
         <Container className="grid gap-14 lg:grid-cols-12">
